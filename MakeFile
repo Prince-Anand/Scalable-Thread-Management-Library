@@ -1,0 +1,14 @@
+CC = gcc  
+CFLAGS = -Wall -lpthread  
+
+all: main  
+
+main: src/main.c src/thread_pool.c  
+    $(CC) $(CFLAGS) -o main src/main.c src/thread_pool.c  
+
+test: tests/test_thread_pool.c src/thread_pool.c  
+    $(CC) $(CFLAGS) -o test tests/test_thread_pool.c src/thread_pool.c  
+    ./test  
+
+clean:  
+    rm -f main test  
