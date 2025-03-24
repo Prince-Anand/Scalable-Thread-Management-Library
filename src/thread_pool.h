@@ -11,6 +11,7 @@ typedef struct {
     int task_queue[MAX_TASKS];  
     int task_count;  
     pthread_mutex_t lock;  
+    pthread_cond_t cond;  
 } ThreadPool;  
 
 void init_thread_pool(ThreadPool *pool);  

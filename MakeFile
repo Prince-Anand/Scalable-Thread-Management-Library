@@ -1,14 +1,14 @@
 CC = gcc  
 CFLAGS = -Wall -lpthread  
 
-all: main  
+all: main.exe  
 
-main: src/main.c src/thread_pool.c  
-	$(CC) $(CFLAGS) -o main src/main.c src/thread_pool.c  
+main.exe: src/main.c src/thread_pool.c  
+	$(CC) $(CFLAGS) -o main.exe src/main.c src/thread_pool.c  
 
-test: tests/test_thread_pool.c src/thread_pool.c  
-	$(CC) $(CFLAGS) -o test tests/test_thread_pool.c src/thread_pool.c  
-	./test  
+test.exe: tests/test_thread_pool.c src/thread_pool.c  
+	$(CC) $(CFLAGS) -o test.exe tests/test_thread_pool.c src/thread_pool.c  
+	.\test.exe  
 
 clean:  
-	rm -f main test  
+	del main.exe test.exe  
