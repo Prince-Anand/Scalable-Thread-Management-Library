@@ -9,7 +9,7 @@ void* worker_thread(void* arg) {
         if (pool->task_count > 0) {  
             int task = pool->task_queue[--pool->task_count];  
             pthread_mutex_unlock(&pool->lock);  
-            printf("Thread %lu executing task %d\n", pthread_self(), task);  
+            printf("Thread %lu executing task %d\n", (unsigned long)pthread_self(), task);  
         } else {  
             pthread_mutex_unlock(&pool->lock);  
         }  
