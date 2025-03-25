@@ -1,5 +1,5 @@
 CC = gcc  
-CFLAGS = -Wall -lpthread  
+CFLAGS = -Wall -lpthread -I./src
 
 all: main.exe  
 
@@ -10,5 +10,13 @@ test.exe: tests/test_thread_pool.c src/thread_pool.c
 	$(CC) $(CFLAGS) -o test.exe tests/test_thread_pool.c src/thread_pool.c  
 	.\test.exe  
 
+stress_test: tests/stress_test.c src/thread_pool.c
+	$(CC) $(CFLAGS) -o $@ $^
+	./stress_test
+
+benchmark: stress_test
+	@echo "Running performance benchmark..."
+	time ./stress_test
+
 clean:  
-	del main.exe test.exe  
+	del main.exe test.exe stress_test.exe

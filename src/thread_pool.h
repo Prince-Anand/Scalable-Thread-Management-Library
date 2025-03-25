@@ -3,8 +3,8 @@
 
 #include <pthread.h>
 
-#define THREAD_POOL_SIZE 5
-#define MAX_TASKS 100
+#define THREAD_POOL_SIZE 20
+#define MAX_TASKS 2000 //100 ko 1000 kr diya
 
 typedef struct
 {
@@ -15,10 +15,14 @@ typedef struct
     pthread_cond_t cond;
     int shutdown;   
     // Shutdown flag
+    long total_processed;    //  counter
+    size_t peak_queue_usage; //  peak usage tracker
 } ThreadPool;
 
 void init_thread_pool(ThreadPool *pool);
 void add_task(ThreadPool *pool, int task);
 void destroy_thread_pool(ThreadPool *pool);
 
+// Helper function declaration
+void print_pool_stats(const ThreadPool *pool);
 #endif
