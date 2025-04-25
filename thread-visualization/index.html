@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thread Management Visualization</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Thread Pool Visualization</h1>
+            <div class="controls">
+                <button id="startBtn" class="btn">Start Simulation</button>
+                <button id="spawnTaskBtn" class="btn">Spawn Task</button>
+                <button id="addThreadBtn" class="btn">Add Thread</button>
+                <button id="killThreadBtn" class="btn">Kill Thread</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="visualization">
+                <div class="thread-pool">
+                    <h2>Thread Pool</h2>
+                    <div id="threads" class="threads-container">
+                        <!-- Threads will be dynamically added here -->
+                    </div>
+                </div>
+
+                <div class="task-queue">
+                    <h2>Task Queue</h2>
+                    <div id="queue" class="queue-container">
+                        <!-- Tasks will be dynamically added here -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats">
+                <div class="stat-item">
+                    <label>Active Threads:</label>
+                    <span id="activeThreads">0</span>
+                </div>
+                <div class="stat-item">
+                    <label>Queue Size:</label>
+                    <span id="queueSize">0</span>
+                </div>
+                <div class="stat-item">
+                    <label>Completed Tasks:</label>
+                    <span id="completedTasks">0</span>
+                </div>
+            </section>
+
+            <section class="stats performance-stats">
+                <h2>Performance Metrics</h2>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <label>Avg. Completion Time:</label>
+                        <span id="avgCompletionTime">0 s</span>
+                    </div>
+                    <div class="stat-item">
+                        <label>Thread Utilization:</label>
+                        <span id="threadUtilization">0%</span>
+                    </div>
+                    <div class="stat-item">
+                        <label>Tasks/Second:</label>
+                        <span id="throughput">0/s</span>
+                    </div>
+                    <div class="stat-item">
+                        <label>Queue Wait Time:</label>
+                        <span id="avgQueueTime">0 s</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="log-panel">
+                <h2>Event Log</h2>
+                <div id="logContainer" class="log-container">
+                    <!-- Log messages will be added here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="./threadSimulator.js"></script>
+</body>
+</html> 
