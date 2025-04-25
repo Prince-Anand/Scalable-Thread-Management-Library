@@ -12,7 +12,9 @@
 
 ---
 
-## Getting Started  
+## Getting Started 
+
+Visualization Link (See the Visual implementation of the Library and how it works) - https://scalable-thread-management-library.vercel.app/
 
 ### Prerequisites (Things that are used to run the Tool) 
 - **C/C++ Compiler:** GCC or Clang.  
